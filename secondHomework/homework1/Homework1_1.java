@@ -1,7 +1,7 @@
 package secondHomework.homework1;
 
 
-public class Homework1Point1 {
+public class Homework1_1 {
     public static void main(String[] args) {
         int result = 1;
         int arg = Integer.parseInt(args[0]);

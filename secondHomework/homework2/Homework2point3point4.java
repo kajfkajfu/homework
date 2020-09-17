@@ -20,6 +20,7 @@ public class Homework2point3point4 {
             result = i + "\r\n" + result;
         }
 
+
         System.out.print(result);
     }
 }

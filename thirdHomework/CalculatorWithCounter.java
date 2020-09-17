@@ -1,4 +1,4 @@
-package ThirdHomework;
+package thirdHomework;
 
 public class CalculatorWithCounter implements ICalc {
 

@@ -1,4 +1,4 @@
-package ThirdHomework;
+package thirdHomework;
 
 public interface ICalc {
     public double div(double x, double y);

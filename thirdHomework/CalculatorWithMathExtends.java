@@ -1,4 +1,4 @@
-package ThirdHomework;
+package thirdHomework;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalc {
 

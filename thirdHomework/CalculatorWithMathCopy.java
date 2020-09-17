@@ -1,7 +1,6 @@
-package ThirdHomework;
+package thirdHomework;
 
-public class CalculatorWithOperator implements ICalc {
-
+public class CalculatorWithMathCopy implements ICalc {
     public double div(double x, double y) {
         return x / y;
     }
@@ -19,25 +18,14 @@ public class CalculatorWithOperator implements ICalc {
     }
 
     public double pow(double x, int y) {
-        double result = 1;
-        for (int i = 1; i < y; i++) {
-            result = x * x;
-        }
-        return result;
+        return Math.pow(x, y);
     }
 
     public double abs(double x) {
-        if (x < 0) {
-            return -x;
-        }
-        return x;
+        return Math.abs(x);
     }
 
     public int root(int x) {
-        int root = 1;
-        while (root * root <= x) {
-            root++;
-        }
-        return --root;
+        return (int) Math.sqrt(x);
     }
 }
