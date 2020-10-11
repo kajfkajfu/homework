@@ -1,6 +1,6 @@
-package Operators.task4;
+package operators.task4;
 
-public class homework4 {
+public class Main4 {
     public static void main(String[] args) {
         boolean isWeekday = true;
         boolean isVacation = false;

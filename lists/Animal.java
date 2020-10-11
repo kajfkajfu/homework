@@ -1,6 +1,8 @@
-package SixthHomeWork;
+package lists;
 
 public class Animal {
+    //Дз не готово!
+
     private int age;
     private String nick;
 

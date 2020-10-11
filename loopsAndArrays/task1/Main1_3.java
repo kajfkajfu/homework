@@ -1,8 +1,8 @@
-package LoopsAndArrays.homework1;
+package loopsAndArrays.task1;
 
 import java.util.Scanner;
 
-public class Homework1Point3 {
+public class Main1_3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("please, enter two numbers : ");

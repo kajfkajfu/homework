@@ -1,7 +1,4 @@
-package fourthHomework;
-
-import java.util.Arrays;
-import java.util.Comparator;
+package dataContainer;
 
 public class Main {
     public static void main(String[] args) {

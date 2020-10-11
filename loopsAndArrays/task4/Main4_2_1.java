@@ -1,8 +1,8 @@
-package LoopsAndArrays.task4;
+package loopsAndArrays.task4;
 
 import java.util.Arrays;
 
-public class Homework4point2point1and2 {
+public class Main4_2_1 {
     public static void main(String[] args) {
 
     }

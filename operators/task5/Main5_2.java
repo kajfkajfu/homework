@@ -1,8 +1,8 @@
-package Operators.task5;
+package operators.task5;
 
 import java.util.Scanner;
 
-public class Homework5Class2 {
+public class Main5_2 {
     public static void main(String[] args) {
         String name;
         String friend = "Вася";

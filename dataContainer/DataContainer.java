@@ -1,9 +1,7 @@
-package fourthHomework;
+package dataContainer;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Objects;
 
 public class DataContainer<T> {
     private T[] data; //Внутренний массив для хранения передоваемых объектов

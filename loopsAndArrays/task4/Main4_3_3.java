@@ -1,13 +1,13 @@
-package LoopsAndArrays.task4;
+package loopsAndArrays.task4;
 
-public class Homework4point3point3 {
+public class Main4_3_3 {
     public static void main(String[] args) {
         int[] array = {9,1,5,99,9,9};
 
-        Homework4point2point1and2.bubbleSort(array);
+        Main4_2_1.bubbleSort(array);
         System.out.println("------------");
 
         array = new int[]{9, 1, 5, 99, 9, 9};
-        Homework4point2point1and2.cocktailSort(array);
+        Main4_2_1.cocktailSort(array);
     }
 }

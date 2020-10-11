@@ -1,6 +1,8 @@
-package SixthHomeWork;
+package lists;
 
 public class Person {
+    //Дз не готово!
+
     private String nick;
     private String password;
 

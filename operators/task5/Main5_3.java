@@ -1,8 +1,8 @@
-package Operators.task5;
+package operators.task5;
 
 import java.util.Scanner;
 
-public class Homework5Class3 {
+public class Main5_3 {
     public static void main(String[] args) {
         String name;
         Scanner in = new Scanner(System.in);

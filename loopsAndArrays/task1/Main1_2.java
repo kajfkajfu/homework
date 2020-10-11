@@ -1,6 +1,6 @@
-package LoopsAndArrays.homework1;
+package loopsAndArrays.task1;
 
-public class Homework1Point2 {
+public class Main1_2 {
     public static void main(String[] args) {
         int result = 1;
         int length = args[0].length();

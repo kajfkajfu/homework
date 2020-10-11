@@ -1,4 +1,4 @@
-package thirdHomework;
+package calculators;
 
 public class CalculatorWithMathCopy implements ICalc {
     public double div(double x, double y) {

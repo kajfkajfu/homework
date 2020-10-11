@@ -1,4 +1,4 @@
-package thirdHomework;
+package calculators;
 
 public class CalculatorWithMemory implements ICalc {
     private ICalc calc;

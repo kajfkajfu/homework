@@ -1,6 +1,6 @@
-package Operators.task1;
+package operators.task1;
 
-public class Homework1 {
+public class Main1 {
     public static void main(String[] args) {
         int a = 42;  //  42 = 0010 1010
         int b = 15;  //  15 = 0000 1111

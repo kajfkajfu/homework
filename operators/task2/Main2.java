@@ -1,6 +1,6 @@
-package Operators.task2;
+package operators.task2;
 
-public class Homework2 {
+public class Main2 {
     public static void main(String[] args) {
         boolean booleanResult;
         int result;

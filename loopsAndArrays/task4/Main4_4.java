@@ -1,9 +1,9 @@
-package LoopsAndArrays.task4;
+package loopsAndArrays.task4;
 
 import java.util.Arrays;
 import java.util.Random;
 
-public class Homework4point4 {
+public class Main4_4 {
     public static void main(String[] args) {
         Random random = new Random();
         int size = random.nextInt(10);

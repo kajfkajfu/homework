@@ -1,9 +1,9 @@
-package LoopsAndArrays.task4;
+package loopsAndArrays.task4;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Homework4point5 {
+public class Main4_5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter array size : ");

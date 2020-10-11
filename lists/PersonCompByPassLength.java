@@ -1,8 +1,10 @@
-package SixthHomeWork;
+package lists;
 
 import java.util.Comparator;
 
 public class PersonCompByPassLength implements Comparator<Person> {
+    //Дз не готово!
+
     @Override
     public int compare(Person o1, Person o2) {
         if (o1.getPassword().length() == o2.getPassword().length())

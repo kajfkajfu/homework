@@ -1,7 +1,7 @@
-package LoopsAndArrays.homework1;
+package loopsAndArrays.task1;
 
 
-public class Homework1_1 {
+public class Main1_1 {
     public static void main(String[] args) {
         int result = 1;
         int arg = Integer.parseInt(args[0]);

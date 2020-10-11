@@ -1,6 +1,6 @@
-package LoopsAndArrays.homework1;
+package loopsAndArrays.task1;
 
-public class Homework1Point5 {
+public class Main1_5 {
     public static void main(String[] args) {
         for (int i = 1; i <= 10; i++) {
             for (int j = 2; j <= 5; j++) {
