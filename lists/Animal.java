@@ -1,7 +1,6 @@
 package lists;
 
 public class Animal {
-    //Дз не готово!
 
     private int age;
     private String nick;
@@ -26,4 +25,14 @@ public class Animal {
     public void setNick(String nick) {
         this.nick = nick;
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "age=" + age +
+                ", nick='" + nick + '\'' +
+                '}';
+    }
 }
+
+

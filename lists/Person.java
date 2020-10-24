@@ -1,7 +1,6 @@
 package lists;
 
 public class Person {
-    //Дз не готово!
 
     private String nick;
     private String password;
@@ -25,5 +24,13 @@ public class Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "nick='" + nick + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

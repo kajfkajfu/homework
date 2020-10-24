@@ -2,8 +2,9 @@ package lists;
 
 import java.util.Comparator;
 
-public class PersonCompByPassLength implements Comparator<Person> {
-    //Дз не готово!
+//Класс имплементрующий интерфейс компаратор, для сравнения объектов класса Animal
+//сначала по возрасту.
+public class CompPersonByPass implements Comparator<Person> {
 
     @Override
     public int compare(Person o1, Person o2) {
@@ -12,6 +13,6 @@ public class PersonCompByPassLength implements Comparator<Person> {
         else if (o1.getPassword().length() > o2.getPassword().length()) {
             return 1;
         } else
-            return 0;
+            return -1;
     }
 }
