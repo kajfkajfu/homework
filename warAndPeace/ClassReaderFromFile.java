@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public  class ClassReaderFromFile {
-    String filePath = "C:\\Users\\ARKADIY\\IdeaProjects\\Homework\\Война и мир_книга.txt";
+    String filePath = "Война и мир_книга.txt";
     String content = readAllBytesJava7(filePath);
 
 
