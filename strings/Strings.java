@@ -1,72 +1,299 @@
 package strings;
 
 public class Strings {
-    //Дз не готово!
+    final static String[] END_THOUSANDS = {" тысяча ", " тысячи ", " тысяч "};
+    final static String[] END_MILLIONS = {" миллион ", " миллиона ", " миллионов "};
+    final static String[] END_NUMBERS = {"одна", "две"};
+    final static String[] START_THOUSANDS = {"", "одна", "две"};
+
+    public static String toString(int number) {
+
+        StringBuilder result = new StringBuilder();
+
+        if (number < 0) {
+            result.append("минус ");
+            number = -number;
+        }
+        if (number <= 999) {
+            result.append(toStringBeforeThousand(number));
+        } else if (number <= 999_999) {
+            //начало метода
+            int thousand = number / 1000;
+            //установка буквенного значения для числе меньше 100_000
+            if ((thousand % 10 == 1 || thousand % 10 == 2 || thousand % 10 == 3 || thousand % 10 == 4)
+                    && thousand > 20 && thousand < 100) {
+                switch (thousand % 10) {
+                    case 1:
+                        result.append(toStringBeforeThousand(thousand - 1)).append(" ").append(START_THOUSANDS[1])
+                                .append(END_THOUSANDS[0]);
+                        break;
+                    case 2:
+                        result.append(toStringBeforeThousand(thousand - 2)).append(" ").append(START_THOUSANDS[2])
+                                .append(END_THOUSANDS[1]);
+                        break;
+                    case 3:
+                        result.append(toStringBeforeThousand(thousand - 3)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                        break;
+                    case 4:
+                        result.append(toStringBeforeThousand(thousand - 4)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                }
+                //установка буквенного значения для числе больше 100_000
+            } else if ((thousand % 10 == 1 || thousand % 10 == 2 || thousand % 10 == 3 || thousand % 10 == 4)
+                    && thousand > 100 && (thousand % 100) > 20) {
+                switch (thousand % 10) {
+                    case 1:
+                        result.append(toStringBeforeThousand(thousand - 1)).append(" ").append(START_THOUSANDS[1])
+                                .append(END_THOUSANDS[0]);
+                        break;
+                    case 2:
+                        result.append(toStringBeforeThousand(thousand - 2)).append(" ").append(START_THOUSANDS[2])
+                                .append(END_THOUSANDS[1]);
+                        break;
+                    case 3:
+                        result.append(toStringBeforeThousand(thousand - 3)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                        break;
+                    case 4:
+                        result.append(toStringBeforeThousand(thousand - 4)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                }
+                //конец метода
+            } else {
+
+                switch (thousand) {
+                    case 1:
+                        result.append(START_THOUSANDS[1]).append(END_THOUSANDS[0]); //0 0
+                        break;
+                    case 2:
+                        result.append(START_THOUSANDS[2]).append(END_THOUSANDS[1]); //0 1
+                        break;
+                    case 3:
+                    case 4:
+                        result.append(toStringBeforeThousand(thousand)).append(END_THOUSANDS[1]); //0 1
+                        break;
+                    default:
+                        result.append(toStringBeforeThousand(thousand)).append(END_THOUSANDS[2]); //0 2
+                }
+            }
 
 
+            if ((number % 1000) != 0) {
+                result.append(toStringBeforeThousand(number % 1000));
+            }
+
+        } else if (number <= 999_999_999) {
+            int millions = number / 1000000;
+            int thousand = (number / 1000) % 1000;
+
+            if ((millions % 10 == 1 || (millions % 10) == 2 || (millions % 10) == 3 || (millions % 10) == 4)
+                    && millions > 20 && millions < 100) {
+                switch (millions % 10) {
+                    case 1:
+                        result.append(toStringBeforeThousand(millions - 1)).append(" ")
+                                .append(toStringBeforeThousand(1)).append(END_MILLIONS[0]);
+                        break;
+                    case 2:
+                        result.append(toStringBeforeThousand(millions - 2)).append(" ")
+                                .append(toStringBeforeThousand(2)).append(END_MILLIONS[1]);
+                        break;
+                    case 3:
+                        result.append(toStringBeforeThousand(millions - 3)).append(" ")
+                                .append(toStringBeforeThousand(3)).append(END_MILLIONS[1]);
+                        break;
+                    case 4:
+                        result.append(toStringBeforeThousand(millions - 4)).append(" ")
+                                .append(toStringBeforeThousand(4)).append(END_MILLIONS[1]);
+                        break;
+                }
+            } else if ((millions % 10 == 1 || millions % 10 == 2 || millions % 10 == 3 || millions % 10 == 4)
+                    && millions > 100 && (millions % 100) > 20) {
+                switch (millions % 10) {
+                    case 1:
+                        result.append(toStringBeforeThousand(millions)).append(END_MILLIONS[0]);
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        result.append(toStringBeforeThousand(millions)).append(END_MILLIONS[1]);
+                        break;
+                }
+
+            } else {
+                switch (millions) {
+                    case 1:
+                        result.append(toStringBeforeThousand(millions)).append(END_MILLIONS[0]); //1 0
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        result.append(toStringBeforeThousand(millions)).append(END_MILLIONS[1]); //1 1
+                        break;
+                    default:
+                        result.append(toStringBeforeThousand(millions)).append(END_MILLIONS[2]); //1 2
+                }
+            }
+            //установка буквенного значения для числа < 100_000
+            if ((thousand % 10 == 1 || thousand % 10 == 2 || thousand % 10 == 3 || thousand % 10 == 4)
+                    && thousand > 20 && thousand < 100) {
+                switch (thousand % 10) {
+                    case 1:
+                        result.append(toStringBeforeThousand(thousand - 1)).append(" ").append(START_THOUSANDS[1])
+                                .append(END_THOUSANDS[0]);
+                        break;
+                    case 2:
+                        result.append(toStringBeforeThousand(thousand - 2)).append(" ").append(START_THOUSANDS[2])
+                                .append(END_THOUSANDS[1]);
+                        break;
+                    case 3:
+                        result.append(toStringBeforeThousand(thousand - 3)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                        break;
+                    case 4:
+                        result.append(toStringBeforeThousand(thousand - 4)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                }
+                //установка буквенного значения для числа > 100_000
+            } else if ((thousand % 10 == 1 || thousand % 10 == 2 || thousand % 10 == 3 || thousand % 10 == 4)
+                    && thousand > 100 && (thousand % 100) > 20) {
+                switch (thousand % 10) {
+                    case 1:
+                        result.append(toStringBeforeThousand(thousand - 1)).append(" ").append(START_THOUSANDS[1])
+                                .append(END_THOUSANDS[0]);
+                        break;
+                    case 2:
+                        result.append(toStringBeforeThousand(thousand - 2)).append(" ").append(START_THOUSANDS[2])
+                                .append(END_THOUSANDS[1]);
+                        break;
+                    case 3:
+                        result.append(toStringBeforeThousand(thousand - 3)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                        break;
+                    case 4:
+                        result.append(toStringBeforeThousand(thousand - 4)).append(" ")
+                                .append(toStringBeforeThousand(thousand % 10)).append(END_THOUSANDS[1]);
+                }
+                //конец метода
+            } else {
+
+                switch (thousand) {
+                    case 0:
+                        break;
+                    case 1:
+                        result.append(START_THOUSANDS[1]).append(END_THOUSANDS[0]); //0 0
+                        break;
+                    case 2:
+                        result.append(START_THOUSANDS[2]).append(END_THOUSANDS[1]); //0 1
+                        break;
+                    case 3:
+                    case 4:
+                        result.append(toStringBeforeThousand(thousand)).append(END_THOUSANDS[1]); //0 1
+                        break;
+                    default:
+                        result.append(toStringBeforeThousand(thousand)).append(END_THOUSANDS[2]); //0 2
+                }
+            }
+            if ((number % 1_000_000) != 0) {
+                result.append(toStringBeforeThousand(number % 1000));
+            }
+        }
+
+        return result.toString();
+    }
+
+    public static String toString(double number) {
+
+        int beforePoint = (int) number;
+        int afterPoint = (int) (((long) (number * 100)) % 100);
 
 
+        StringBuilder result = new StringBuilder();
+
+        if (beforePoint == 1) {
+            result.append(END_NUMBERS[0]).append(" целая ");
+        } else if (beforePoint == -1) {
+            result.append("минус ").append(END_NUMBERS[0]).append(" целая ");
+        } else if (beforePoint == 2) {
+            result.append(END_NUMBERS[1]).append(" целых ");
+        } else if (beforePoint == -2) {
+            result.append("минус ").append(END_NUMBERS[1]).append(" целых ");
+        } else {
+            if (afterPoint == 0) {
+                return result.append(toString(beforePoint)).toString();
+            }
+            result.append(toString((beforePoint))).append(" целых ");
+        }
 
 
+        if (afterPoint < 0) {
+            afterPoint = -afterPoint;
+        }
+
+        if (afterPoint != 0) {
+            if ((afterPoint % 10) == 0) {
+                if (afterPoint == 10) {
+                    return result.append(END_NUMBERS[0]).append(" десятая").toString();
+                }
+                if (afterPoint == 20) {
+                    return result.append(END_NUMBERS[1]).append(" десятых").toString();
+                }
+                result.append(toString(afterPoint / 10)).append(" десятых");
+            } else {
+                result.append(toString(afterPoint)).append(" сотых");
+            }
+        }
+
+        return result.toString();
+    }
+
+    private static String toStringBeforeThousand(int number) {
+        final String[] BELOW_TWENTY = {"ноль", "один", "два", "три", "четыре",
+                "пять", "шесть", "семь", "восемь", "девять", "десять",
+                "одинадцать", "двенадцадь", "тринадцать", "четырнадцать",
+                "пятнадцать", "шестнадцать", "семнадцать",
+                "восемнадцать", "девятнадцать"};
+        final String[] DOZENS = {"сто", "десять", "двадцать", "тридцать",
+                "сорок", "пятьдесят", "шестьдесят", "семьдесят",
+                "восемьдесят", "девяносто"};
+        final String[] HUNDREDS = {"тысяча", "сто", "двесте", "триста",
+                "четыреста", "пятьсот", "шестьсот", "семьсот",
+                "восемьсот", "девятьсот"};
+
+        StringBuilder result = new StringBuilder();
+
+        if (number < 20) {
+            result.append(BELOW_TWENTY[number]);
+            //проверка на десятки
+        } else if (number < 100) {
+            result.append(DOZENS[number / 10]);
+            //проверка на остаток от десятки, например 9
+            if (number % 10 != 0) {
+                result.append(" ").append(BELOW_TWENTY[number % 10]);
+            }
+            //проверка числа на меньше косаря
+        } else if (number < 1_000) {
+            result.append(HUNDREDS[number / 100]);
+            //проверка на остаток от ста на число < 20
+            if ((number % 100) < 20 && (number % 100) > 0) {
+                result.append(" ").append(BELOW_TWENTY[number % 100]);
+            }
+            //проверка на остаток от ста на число > 20
+            if (number % 100 >= 20 && number % 10 == 0) {
+                result.append(" ").append(DOZENS[(number % 100) / 10]);
+            }
+            //проверка на остаток от ста на число > 20 и не кратное 10
+            if (number % 100 > 20 && number % 10 != 0) {
+                result.append(" ").append(DOZENS[(number % 100) / 10]).append(" ").append(BELOW_TWENTY[number % 10]);
+            }
+        }
 
 
+        return result.toString();
+    }
 
-    String[] stringsFrom0To9 = new String[]{"Ноль", "Один", "Два", "Три", "Четыре", "Пять", "Шесть", "Семь",
-            "Восемь", "Девять"};
+    public static String toWeek(int day) {
+        return (day / 7) + " недель";
+    }
 
-    String[] stringsFrom10To19 = new String[]{"Десять", "Одинадцать", "Двенадцать", "Тринадцать", "Четырнадцать",
-            "Пятнадцать", "Шестнадцать", "Семьнадцать", "Восемьнадцать", "Девятьнадцать"};
-
-    String[] stringsFrom20To90 = new String[]{"Двадцать", "Тридцать", "Сорок", "Пятьдесят", "Шестьдесят", "Семьдесят",
-            "Восемьдесят", "Девяносто"};
-
-    String[] stringsFrom100To900 = new String[]{"Сто ", "Двесте ", "Триста ", "Четыреста ", "Пятьсот ",
-            "Шестьсот ", "Семьсот ", "Восемьсот ", "Девятьсот "};
-
-    String[] getStringsFrom1_000To9_000 = new String[]{"Одна тысячя ", "Две тысячи ", "Три тысячи ", "Четыре тысячи ",
-            "Пять тысяч ", "Шесть тысяч ", "Семь тысяч ", "Восемь тысяч ", "Девять тысяч "};
-
-    String[] getStringsFrom10_000To90_000 = new String[]{"Десять тысяч ", "Двадца тысяч ", "Тридцать тысяч ", "Сорок тысяч ",
-            "Пятьдесят тысяч ", "Шестьдесят тысяч ", "Семьдесят тысяч ", "Восемьдесят тысяч ", "Девяносто тысяч "};
-
-    String[] getStringsFrom100_000To900_000 = new String[]{"Сто тысяч ", "Двесте тысяч ", "Триста тысяч ", "Четыреста тысяч ",
-            "Пятьсот тысяч ", "Шестьсот тысяч ", "Семьсот тысяч ", "Восемьсот тысяч ", "Девятьсот тысяч "};
-
-    String[] getStringsFrom1_100_000To9_000_000 = new String[]{"Один миллион ", "Два миллиона", "Три миллона ", "Четыре миллиона ",
-            "Пять миллионов ", "Шесть миллионов ", "Семь миллионов ", "Восемь миллионов ", "Девять миллионов "};
-
-    String[] getStringsFrom10_100_000To90_000_000 = new String[]{"Десять миллионов ", "Двадцать миллионов", "Тридцать миллонов ",
-            "Сорок миллионов ", "Пятьдесят миллионов ", "Шестьдесят миллионов ", "Семьдесят миллионов ",
-            "Восемьдесят миллионов ", "Девяносто миллионов "};
-
-    String[] getStringsFrom100_100_000To900_000_000 = new String[]{"Сто миллионов ", "Двасте миллионов", "Триста миллонов ",
-            "Четыреста миллионов ", "Пятьсот миллионов ", "Шестьсот миллионов ", "Семьсот миллионов ", "Восемьсот миллионов ",
-            "Девятьсот миллионов "};
-
-//    public String toString(int number) {
-//        String result = "";
-//        if (number >= 0 && number <= 9) {
-//            result = toStringsFrom0To9(number);
-//        } else if (number >= 10 && number <= 19) {
-//            result = toStringsFrom10To19(number);
-//        } else if (number >= 20 && number <= 99) {
-//            result = toStringsFrom20To99(number);
-//        } else if (number >= 100 && number <= 999) {
-//            result = toStringsFrom100To999(number);
-//        } else if (number >= 1_000 && number <= 9_999) {
-//            result = toStringsFrom1_000To9_999(number);
-//        } else if (number >= 10_000 && number <= 99_999) {
-//            result = toStringsFrom10_000To99_999(number);
-//        } else if (number >= 100_000 && number <= 999_999) {
-//            result = toStringsFrom100_000To999_999(number);
-//        } else if (number >= 1_000_000 && number <= 9_999_999) {
-//            result = toStringsFrom1_000_000To9_999_999(number);
-//        } else if (number >= 10_000_000 && number <= 99_999_999) {
-//            result = toStringsFrom10_000_000To99_999_999(number);
-//        } else {
-//            result = toStringsFrom100_000_000To999_999_999(number);
-//        }
-//        return result;
-//    }
 }
-

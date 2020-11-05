@@ -2,21 +2,16 @@ package strings;
 
 public class Main {
     public static void main(String[] args) {
-        //Дз не готово!
+        System.out.println(Strings.toString(-2.20));
+        System.out.println(Strings.toString(-1.1));
+        System.out.println(Strings.toString(-2_234_983.23414));
+        System.out.println(Strings.toString(98_585_473.99));
+        System.out.println(Strings.toString(-999_114_681D));
+        System.out.println(Strings.toString(334_124_681D));
 
+        System.out.println(Strings.toWeek(2));
+        System.out.println(Strings.toWeek(7));
+        System.out.println(Strings.toWeek(21));
 
-
-
-
-        Strings strings = new Strings();
-        //strings.toString(999_987_999.123);
-        //Создавал массивы от 0 до 9
-        //от 10 до 19
-        //от 20 до 90
-        //от 100 до 300
-        //от 1000 до 10000
-        //от 10_000 до 100_000
-        //и просто соединял строки
-        //исходя из деления с остатком %
     }
 }
