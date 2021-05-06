@@ -3,9 +3,9 @@
 Calculators - in this task, written different versions of calculator(several separate classes). That use different methods(some of them are just their own methods, some of them
 refer to the Math libary).
 
-DataContainer - in this task a class is written, an analogue of ArrayList.
+DataContainer - in this task a class is written, as an analogue of ArrayList.
 
-Lists - created classes for storing information about objects, created comparators for classes that compare, sorted collections using comparators.
+Lists - created class for storing information about objects, created comparators for class that compare, sorted collections using comparators.
 
 LoopsAndArrays - in this task, various actions are perfomed with array and loops in order to study their functionality.
 
@@ -16,4 +16,4 @@ possibility for the user to the file to save the course. Otherwise the course mu
 
 Strings - converts received number to number as a text (from -999 999 999 to 999 999 999).
 
-WarAndPeace - working with the text of the book War and Peace (search for unique words, find top 10 words, Find how many times the specified word occurs in text).
+WarAndPeace - working with the text of the book War and Peace (search for unique words, find top 10 words, find how many times the specified word occurs in text).
